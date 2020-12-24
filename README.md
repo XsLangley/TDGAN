@@ -24,8 +24,9 @@ The paper is available at [here](https://ieeexplore.ieee.org/abstract/document/9
 - Pillow
 
 ## Model Description
-![avatar](assets/framework.jpg)
+
 The framework of the model:
+![avatar](assets/framework.jpg)
 <!-- <p align="left"><img width="100%" src="assets/framework.jpg" /></p> -->
 
 TDGAN learns image representations through expression transferring.
