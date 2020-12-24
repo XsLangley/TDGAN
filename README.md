@@ -24,7 +24,7 @@ The paper is available at [here](https://ieeexplore.ieee.org/abstract/document/9
 - Pillow
 
 ## Model Description
-<!-- ![avatar](assets/pipeline.jpg) -->
+![avatar](assets/pipeline.jpg)
 The framework of the model:
 <p align="left"><img width="100%" src="assets/framework.jpg" /></p>
 
@@ -44,8 +44,7 @@ We can therefore take such expression-specific features for expression classific
 
 ### Directory Tree
 ```
-TDGAN
-│   dataset.py    
+TDGAN   
 │   LoadData.py  
 │   main.py  
 │   models.py    
