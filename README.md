@@ -1,4 +1,4 @@
-# TDGAN: Two-branch Disentangled Generative Neural Network
+# TDGAN: Two-branch Disentangled Generative Adversarial Network
 
 <p align="left"><img width="100%" src="assets/pipeline.jpg" /></p>
 
