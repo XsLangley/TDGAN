@@ -1,0 +1,6 @@
+.vscode
+__pycache__/
+.idea
+Dataset/examples/*.rar
+Dataset/examples/*.pkl
+Dataset/examples/generated_example.png
