@@ -175,7 +175,7 @@ class resblock(nn.Module):
 class decoder(nn.Module):
     def __init__(self, Nz=100, Nb=3, Nc=128, GRAY=False):
         '''
-        decoder to generate an image, a wide version of decoder
+        decoder to generate an image
         :param Nz: dimension of noises
         :param Nb: number of blocks
         :param Nc: channel number
