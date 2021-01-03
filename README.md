@@ -86,7 +86,26 @@ TDGAN
 
 ## Datasets
 
-Details will be added soon.
+Experiments are conducted on three in-the-lab datasets (CK+, TFEID, RaFD) and two in-the-wild datasets (BAUM-2i, RAF-DB).
+
+All the datasets are publicly accessible in the following links:
+- **CK+**: [application form](http://www.jeffcohn.net/wp-content/uploads/2020/10/2020.10.26_CK-AgreementForm.pdf100.pdf.pdf)
+    - The Extended Cohn-Kanade (CK+) [22] contains 593 image sequences collected from 123 subjects. 433 Expressions in each sequence vary from neutral face to the 434 peak expression. In this dataset, only sequences are labelled with one of the six prototypical expressions (anger, disgust, fear, happiness, sadness, surprise) and thus selected out for experiments. We pick out the last three frames of each sequence to construct the training and testing sets. Additionally, the first frame of each selected sequence is collected as a neural face. Therefore, there are totally 1236 images involved in our experiments.
+- **TFEID**: download [link](http://bml.ym.edu.tw/tfeid/) (but currently their server seems crashed...)
+    - Taiwanese Facial Expression Image Database (TFEID) is captured from 40 models, each with eight facial expressions(six typical expression + neural + contempt). In our experiments, we only pick out the images that are labeled with six basic expression and the neutral. Therefore, 580 images of TFEID are involved in our experiments.
+- **RaFD**: download [link](http://www.socsci.ru.nl:8180/RaFD2/RaFD)
+    - The Radboud Faces Database (RaFD) is a set of pictures collected from 67 model with different ethnics. Each picture of the dataset is annotated with an expression as well as the corresponding identity. To compare with other state-of-the-art methods, we only collect the images labeled with one of the seven expressions (six prototypical expressions+neutral). Therefore, there are totally 1407 images used in our experiments.
+- **BAUM-2i**: download [link](http://baum2.bahcesehir.edu.tr/)
+    - BAUM-2i is a static expression dataset, which is sorted out from BAUM-2, a dataset of audio-visual affective facial clips collected from movies and TV series. BAUM-2i contains samples under diverse conditions reflecting the eight expressions (six typical expressions plus the neutral and contemp). In our experiments, 998 images labeled with one of the seven expressions (contempt excluded) are used to evaluate our model.
+- **RAF-DB**: download [link](http://www.whdeng.cn/raf/model1.html)
+    - Real-world Affective Faces Database (RAF-DB) is a large-scale facial expression database that all images are collected from the Internet and annotated by human. In our experiments, we only use the single-label subset (including six typical expressions and the neutral) to evaluate the TDGAN. The predefined training set includes 12271 samples and the size of the test set is 3068.
+
+## Preprocessing and Setup
+
+In the preprocessing stage, faces in the input images (including both face and expression images) are first detected by the [MTCNN](https://github.com/ipazc/mtcnn) and then resized to 128x128x1.
+Data augmentation (random cropping and horizontal flipping) is also adopted in the training stage.
+To fairly compared with other methods, in CK+, TFEID, RaFD and BAUM-2i, we conduct subject-independent 10-fold cross-validation to evaluate our model.
+In RAF-DB, TDGAN is trained and evaluated in the predefined training and testing sets.
 
 
 ## Results on Expression Classification Task (main task) 
