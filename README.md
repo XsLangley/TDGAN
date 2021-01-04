@@ -2,12 +2,15 @@
 
 <p align="left"><img width="100%" src="assets/pipeline.jpg" /></p>
 
-This is the code repository of model **TDGAN** for facial expression recognition (FER), which is an  algorithm presented in the following paper:
+This is the PyTorch implementation of model **TDGAN** for facial expression recognition (FER), which is an  algorithm presented in the following paper:
 > Xie, Siyue, Haifeng Hu, and Yizhen Chen. "Facial Expression Recognition with Two-branch Disentangled Generative Adversarial Network." IEEE Transactions on Circuits and Systems for Video Technology (2020).
 
 > **Abstract:** Facial Expression Recognition (FER) is a challenging task in computer vision as features extracted from expressional images are usually entangled with other facial attributes, e.g., poses or appearance variations, which are adverse to FER. To achieve a better FER performance, we propose a model named Two-branch Disentangled Generative Adversarial Network (TDGAN) for discriminative expression representation learning. Different from previous methods, TDGAN learns to disentangle expressional information from other unrelated facial attributes. To this end, we build the framework with two independent branches, which are specific for facial and expressional information processing respectively. Correspondingly, two discriminators are introduced to conduct identity and expression classification. By adversarial learning, TDGAN is able to transfer an expression to a given face. It simultaneously learns a discriminative representation that is disentangled from other facial attributes for each expression image, which is more effective for FER task. In addition, a self-supervised mechanism is proposed to improve representation learning, which enhances the power of disentangling. Quantitative and qualitative results in both in-the-lab and in-the-wild datasets demonstrate that TDGAN is competitive to the state-of-the-art methods.
 
+>**Note**: The face image in the above pipeline diagram is provided by my friend [Dr. Shiyuan Li](https://aaep.osu.edu/people/li.10883). He once said he has longed for seeing his face being presented in some public publications so I took his figure as an illustrative example in this paper. (Of course, I obtained his permission before placing the image.) But he still complained that the image I chose was far from his satisfactory as he doesn't look very handsome in the image.
+
 The paper is available at [here](https://ieeexplore.ieee.org/abstract/document/9197663/).
+
 
 
 ## Quick Start: one evaluation step with a pretrained model
@@ -104,14 +107,77 @@ All the datasets are publicly accessible in the following links:
 
 In the preprocessing stage, faces in the input images (including both face and expression images) are first detected by the [MTCNN](https://github.com/ipazc/mtcnn) and then resized to 128x128x1.
 Data augmentation (random cropping and horizontal flipping) is also adopted in the training stage.
-To fairly compared with other methods, in CK+, TFEID, RaFD and BAUM-2i, we conduct subject-independent 10-fold cross-validation to evaluate our model.
+To fairly compared with other methods, in **CK+**, **TFEID**, **RaFD** and **BAUM-2i**, we conduct subject-independent **10-fold cross-validation** to evaluate our model.
 In RAF-DB, TDGAN is trained and evaluated in the predefined training and testing sets.
 
 
 ## Results on Expression Classification Task (main task) 
 
-Details will be added soon.
+| Dataset | Accuracy (%) |
+| ------- | -------- |
+| CK+     | 97.53    |
+| TFEID   | 97.20    |
+| RaFD    | 99.32    |
+| BAUM-2i | 65.76    |
+| RAF-DB  | 81.91    |
+
 
 ## Visualization Results
 
-Details will be added soon.
+The purpose of TDGAN is to recognize facial expressions.
+However, since we use GAN framework for disentangling, TDGAN can also generate some interesting images as by-product.
+By observing on the generated images, we can also evaluate whether different attributes are disentangled with each other in some extent.
+Here we conduct two kinds of visualization experiments, i.e., expression transferring (interpolation) and face interpolation.
+>But note that our main task is expression recognition, we don't care about the quality of the generated images.
+Also, the following images are cherry-picked, i.e., it is not guaranteed that the model can always successfully transfer a given expression to another face.
+
+### Expression Transferring/ Interpolation
+
+Given a face image, we can modify the expression in the face based on what expression images are given.
+Also, we can fix the face image, and interpolate between two expression images to see how the expression in the generated face is gradually changed from one to another.
+This shows that TDGAN can disentangle expressional features from facial attributes as it can modify the expression but keep the facial appearance untouched.
+
+Given a person's facial image, we change his expression from fear to anger:
+![avatar](assets/fig_int_BAUM2_Fe2An.png)
+
+The animation to show the transition process:
+
+![avatar](assets/fig_int_BAUM2_Fe2An.gif)
+
+Given a person's facial image, we change his expression from neutral to happiness:
+![avatar](assets/fig_int_RAF_Ne2Ha.png)
+
+The animation to show the transition process:
+
+![avatar](assets/fig_int_RAF_Ne2Ha.gif)
+
+### Face Interpolation
+
+Given two face images, we can interpolate between these two face so that we can observe the transition process from one face to another face.
+This also shows that TDGAN is able to disentangle facial appearance features from expression features as the facial appearance is changed but the expression is kept untouched.
+
+Given an expression image (Happiness) and two person's image, we change the facial appearance from one to another, but keep the expression unchanged:
+![avatar](assets/fig_int_face141To137_Ha.png)
+
+The animation to show the transition process:
+
+![avatar](assets/fig_int_face141To137_Ha.gif)
+
+Given an expression image (Neutral) and two person's image, we change the facial appearance from one to another, but keep the expression unchanged:
+![avatar](assets/fig_int_face141To137_Ne.png)
+
+The animation to show the transition process:
+
+![avatar](assets/fig_int_face141To137_Ne.gif)
+
+
+## Cite This work
+```
+@article{xie2020facial,
+  title={Facial Expression Recognition with Two-branch Disentangled Generative Adversarial Network},
+  author={Xie, Siyue and Hu, Haifeng and Chen, Yizhen},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2020},
+  publisher={IEEE}
+}
+```
