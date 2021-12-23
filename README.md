@@ -12,6 +12,21 @@ This is the PyTorch implementation of model **TDGAN** for facial expression reco
 The paper is available at [here](https://ieeexplore.ieee.org/abstract/document/9197663/).
 
 
+## Cite This work
+```
+@article{xie2020facial,
+  title={Facial expression recognition with two-branch disentangled generative adversarial network},
+  author={Xie, Siyue and Hu, Haifeng and Chen, Yizhen},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  volume={31},
+  number={6},
+  pages={2359--2371},
+  year={2020},
+  publisher={IEEE}
+}
+```
+
+
 
 ## Quick Start: one evaluation step with a pretrained model
 1. Download the model file from:
@@ -169,18 +184,3 @@ Given an expression image (Neutral) and two person's image, we change the facial
 The animation to show the transition process:
 
 ![avatar](assets/fig_int_face141To137_Ne.gif)
-
-
-## Cite This work
-```
-@article{xie2020facial,
-  title={Facial expression recognition with two-branch disentangled generative adversarial network},
-  author={Xie, Siyue and Hu, Haifeng and Chen, Yizhen},
-  journal={IEEE Transactions on Circuits and Systems for Video Technology},
-  volume={31},
-  number={6},
-  pages={2359--2371},
-  year={2020},
-  publisher={IEEE}
-}
-```
