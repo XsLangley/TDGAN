@@ -2,7 +2,7 @@
 
 <p align="left"><img width="100%" src="assets/pipeline.jpg" /></p>
 
-This is the PyTorch implementation of model **TDGAN** for facial expression recognition (FER), which is an  algorithm presented in the following paper:
+This is the PyTorch implementation of model **TDGAN** for facial expression recognition (FER), which is an algorithm presented in the following paper:
 > Xie, Siyue, Haifeng Hu, and Yizhen Chen. "Facial Expression Recognition with Two-branch Disentangled Generative Adversarial Network." IEEE Transactions on Circuits and Systems for Video Technology (2020).
 
 > **Abstract:** Facial Expression Recognition (FER) is a challenging task in computer vision as features extracted from expressional images are usually entangled with other facial attributes, e.g., poses or appearance variations, which are adverse to FER. To achieve a better FER performance, we propose a model named Two-branch Disentangled Generative Adversarial Network (TDGAN) for discriminative expression representation learning. Different from previous methods, TDGAN learns to disentangle expressional information from other unrelated facial attributes. To this end, we build the framework with two independent branches, which are specific for facial and expressional information processing respectively. Correspondingly, two discriminators are introduced to conduct identity and expression classification. By adversarial learning, TDGAN is able to transfer an expression to a given face. It simultaneously learns a discriminative representation that is disentangled from other facial attributes for each expression image, which is more effective for FER task. In addition, a self-supervised mechanism is proposed to improve representation learning, which enhances the power of disentangling. Quantitative and qualitative results in both in-the-lab and in-the-wild datasets demonstrate that TDGAN is competitive to the state-of-the-art methods.
@@ -174,9 +174,12 @@ The animation to show the transition process:
 ## Cite This work
 ```
 @article{xie2020facial,
-  title={Facial Expression Recognition with Two-branch Disentangled Generative Adversarial Network},
+  title={Facial expression recognition with two-branch disentangled generative adversarial network},
   author={Xie, Siyue and Hu, Haifeng and Chen, Yizhen},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  volume={31},
+  number={6},
+  pages={2359--2371},
   year={2020},
   publisher={IEEE}
 }
